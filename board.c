@@ -44,7 +44,7 @@ void board_printBoardStatus(void)
      
      printf("|\n");
      printf("--------------------------------\n");
-     
+      
       printf("----------BOARD COIN----------\n");
      for(i=0;i<N_BOARD;i++)
      {
