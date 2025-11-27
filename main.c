@@ -82,9 +82,43 @@ fflush(stdin);
 }
 
 
+
+int gameEnd(void)
+{
+int i;
+int flag_end=1;
+for (i=0;i<N_PLAYER;i++)
+{
+
+if(player_status[i]==PLAYERSTATUS_LIVE)
+flag_end=0;
+}
+
+return flag_end;
 }
 
 
+void checkDie(void)
+{
+
+
+for (i=0;i<N_PLAYER;i++)
+{
+
+if(board_getBoardStatus(player_position[i])==BOARDSTATUS_NOK)
+player_status[i]=PLAYERSTATUS_DIE;
+printf("So Sad!%s died at position %i\n,player_name[i],player_position[i]");
+
+
+
+}
+
+
+
+
+
+
+}
 
 int rolldie(void)
 {
@@ -93,7 +127,7 @@ int rolldie(void)
 
 int main(int argc, char *argv[])
 {
-    int cnt;
+    
     int turn;
     int dum;
 
@@ -111,7 +145,7 @@ int main(int argc, char *argv[])
   
   
   #if 0
-  cnt=0;
+  
   turn=0;
 
   do{
@@ -168,7 +202,7 @@ int main(int argc, char *argv[])
 		   
 		   cnt++;
         
-} while(cnt<5);
+} while(gameEnd()==0);
  
   
    printf("\n\n\n\n\n\n\n");
